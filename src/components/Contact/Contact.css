@@ -1,0 +1,32 @@
+/* .addContact {
+  float: right;
+  margin: 80px 10px 80px 10px;
+  color: rgb(24, 134, 34);
+  border: none;
+  background: transparent;
+} */
+
+.Contact_block {
+  margin-bottom: 10px;
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  box-shadow: 6px 6px 10px -6px rgba(0,0,0,0.83);
+}
+
+.Contact_img {
+  width: 40%;
+  padding: 5px;
+}
+
+.Contact_info p{
+  font-weight: bold;
+}
+
+.Contact_name {
+  text-transform: capitalize; 
+  font-size: 20px;
+  font-weight: bold;
+  padding: 40px 20px;
+}
