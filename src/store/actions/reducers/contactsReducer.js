@@ -43,11 +43,13 @@ const reducer = (state = initialState, action) => {
     case POST_CONTACT_TO_FRB_REQUEST:
       return {...state, spinner: true, modal: false};
     case CHANGE_CONTACT_FROM_FRB:
-      return {...state, contacts: {
-        ...state.contacts, 
-        [action.contactID]: action.changeContact
-      },
-      modal: false};
+      return {...state, 
+        contacts: {
+          ...state.contacts, 
+          [action.contactID]: action.changeContact
+        },
+      modal: false}
+      ;
     case VALUE_CHANGE:
       return {...state, 
         contact: {

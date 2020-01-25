@@ -27,10 +27,10 @@ class ShowContact extends Component {
       this.props.contactShow ?
       <Fragment>
         <button className="ShowContact_close"
-            onClick={this.props.closeModal}>
-            <i className="fas fa-times" style={{fontSize: '20px', marginRight: '5px'}}/>
+          onClick={this.props.closeModal}>
+          <i className="fas fa-times" style={{fontSize: '20px', marginRight: '5px'}}/>
         </button>
-        <div style={{padding: "20px", display: 'flex'}}>
+        <div className="ShowContact_block">
           <img className="ShowContact_img" src={this.props.contactShow.photo} alt="photo_people" />
           <div className="ShowContact_info">
             <h4 className="ShowContact_text">{this.props.contactShow.name}</h4>

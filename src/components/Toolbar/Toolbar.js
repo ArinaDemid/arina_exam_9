@@ -6,13 +6,15 @@ import {NavLink} from 'react-router-dom';
 const Toolbar = () => (
   <header className="Toolbar">
     <Logo />
-    <NavLink to={'/new-contact'} style={{
+    <NavLink to={'/new-contact'} 
+      style={{
         backgroundColor: 'rgb(228, 222, 222)', 
         border: '1px solid black', 
         color: '#522468', 
         padding: '10px 20px', 
         textDecoration: 'none', 
-        fontWeight: 'bold'}}
+        fontWeight: 'bold'
+      }}
     >
       <i className="fas fa-plus-square"></i>
       Add New Contact
