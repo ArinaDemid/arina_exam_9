@@ -13,6 +13,7 @@ import {  FETCH_CONTACTS_SUCCESS,
           SHOW_MODAL,
           SAVE_ID,
           LOAD_CONTACT_SUCCESS,
+          POST_CONTACT_TO_FRB_SUCCESS
           
 } from "../actionsType";
 
@@ -42,14 +43,24 @@ const reducer = (state = initialState, action) => {
       return {...state, spinner: false};
     case POST_CONTACT_TO_FRB_REQUEST:
       return {...state, spinner: true, modal: false};
+    case POST_CONTACT_TO_FRB_SUCCESS:
+      return {...state, contact: {
+        ...state.contact,
+        name: "",
+        phone: "",
+        photo: "",
+        email: "",
+        },
+        contactShow: {}
+      };
     case CHANGE_CONTACT_FROM_FRB:
       return {...state, 
         contacts: {
           ...state.contacts, 
           [action.contactID]: action.changeContact
         },
-      modal: false}
-      ;
+        modal: false
+      };
     case VALUE_CHANGE:
       return {...state, 
         contact: {

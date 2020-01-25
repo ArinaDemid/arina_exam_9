@@ -16,8 +16,10 @@ import {  FETCH_CONTACTS_SUCCESS,
           SAVE_ID,
           LOAD_CONTACT_SUCCESS, 
           LOAD_CONTACT_REQUEST, 
-          LOAD_CONTACT_ERROR
-          
+          LOAD_CONTACT_ERROR,
+          POST_CONTACT_TO_FRB_SUCCESS,
+          DELETE_CONTACT_FROM_FRB_ERROR,
+        DELETE_CONTACT_FROM_FRB_REQUEST
         } 
 from '../actions/actionsType';
 
@@ -27,6 +29,7 @@ export const fetchContactsError = (error) => ({ type: FETCH_CONTACTS_ERROR, erro
 
 export const postContactToFRBRequest = () => ({ type: POST_CONTACT_TO_FRB_REQUEST });
 export const postContactToFRBError = (error) => ({type: POST_CONTACT_TO_FRB_ERROR, error });
+export const postContactToFRBSuccess = (error) => ({type: POST_CONTACT_TO_FRB_SUCCESS, error });
 
 export const valueChange = (name, value) => ({ type: VALUE_CHANGE, name, value });
 
@@ -46,6 +49,8 @@ export const loadContactRequest = () => ({ type: LOAD_CONTACT_REQUEST });
 export const loadContactSuccess = (contact) => ({type: LOAD_CONTACT_SUCCESS, contact });
 export const loadContactError = () => ({ type: LOAD_CONTACT_ERROR });
 
+export const deleteContactFromFRBRequest = () => ({ type: DELETE_CONTACT_FROM_FRB_REQUEST});
+export const deleteContactFromFRBError = () => ({ type: DELETE_CONTACT_FROM_FRB_ERROR });
 
 export const fetchContacts = () => {
   return async dispatch => {
@@ -65,6 +70,7 @@ export const addContactToFRB = (event, contact) => {
     try {
       dispatch(postContactToFRBRequest());
       await axiosContacts.post('/contacts.json', contact);
+      dispatch(postContactToFRBSuccess());
       dispatch(fetchContacts());
     } catch(error) {
       dispatch(postContactToFRBError(error));
@@ -107,5 +113,18 @@ export const loadContact = (contactID) => {
     } catch (error) {
       dispatch(loadContactError(error));
     };
+  }
+};
+
+export const deleteContactFromFRB = (contactID) => {
+  return async dispatch => {
+    try {
+      dispatch(deleteContactFromFRBRequest());
+      await axiosContacts.delete(`/contacts/${contactID}.json`);
+      dispatch(closeModal());
+      dispatch(fetchContacts());
+    } catch(err) {
+      dispatch(deleteContactFromFRBError(err));
+    }
   }
 };
