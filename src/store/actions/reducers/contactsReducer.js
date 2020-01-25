@@ -1,6 +1,8 @@
 import { FETCH_CONTACTS_SUCCESS, 
   FETCH_CONTACTS_REQUEST, 
   FETCH_CONTACTS_ERROR, 
+  POST_CONTACT_TO_FRB_ERROR,
+  POST_CONTACT_TO_FRB_REQUEST
 } from "../actionsType";
 
 const initialState = {
@@ -23,6 +25,10 @@ const reducer = (state = initialState, action) => {
       return {...state, spinner: true};
     case FETCH_CONTACTS_ERROR:
       return {...state, spinner: false};
+    case POST_CONTACT_TO_FRB_ERROR:
+      return {...state, spinner: false};
+    case POST_CONTACT_TO_FRB_REQUEST:
+      return {...state, spinner: true, modal: false};
     default:
       return state;
   }
