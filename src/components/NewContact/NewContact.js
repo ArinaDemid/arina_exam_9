@@ -70,7 +70,7 @@ class NewContact extends Component {
             </FormGroup>
               <p style={{paddingRight: '15px'}}>Photo preview</p>
               <img src={this.props.contact.photo} alt="photo_people" style={{width: '40%', padding: '5px'}}/>
-            <FormGroup className="NewContact_group" style={{display: 'flex', justifyContent: 'center', paddingTop: '10px'}}>
+            <FormGroup className="NewContact_group" style={{display: 'flex', justifyContent: 'center', paddingTop: '35px'}}>
             {buttonForm}
             <Button type="submit" onClick={this.props.closeModal} style={{border: 'none', padding: '0 10px', backgroundColor: 'transparent'}}>
               <NavLink to="/" style={{backgroundColor: 'rgb(86, 22, 146)', color: 'white', padding: '15px 20px', textDecoration: 'none'}} >
@@ -90,7 +90,6 @@ const mapStateToProps= state => {
     contact: state.contacts.contact
   };
 };
-
 
 const mapDispatchToProps = dispatch => {
   return {

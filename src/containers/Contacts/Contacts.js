@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {fetchContacts, showModal, closeModal, loadContact} from '../../store/actions/contacts';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import Modal from '../../components/UI/Modal/Modal';
+import ShowContact from '../../components/ShowContact/ShowContact';
 
 class Contacts extends Component{
 
@@ -39,6 +40,7 @@ class Contacts extends Component{
           </div>
         </div>
         <Modal show={this.props.modal} close={this.props.closeModal}>
+          <ShowContact />
         </Modal>
       </Fragment>
       : <Spinner />

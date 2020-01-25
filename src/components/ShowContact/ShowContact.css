@@ -1,0 +1,41 @@
+.ShowContact {
+  padding: 20px; 
+  display: flex; 
+  justify-content: center;
+}
+
+.ShowContact_btn {
+  color: rgb(24, 134, 34);
+  border: 1px solid rgb(24, 134, 34);
+  background: transparent;
+  margin: 0 10px;
+  border-radius: 5px;
+  padding: 5px 20px;
+  box-shadow: 4px 4px 8px -4px rgba(0,0,0,0.83);
+}
+
+.ShowContact_close {
+  float: right;
+  margin: 80px 10px 80px 10px;
+  color: rgb(24, 134, 34);
+  border: none;
+  background: transparent;
+  float: right; 
+  margin-top: 5px;
+}
+.ShowContact_info {
+  padding: 25px 10px 10px 25px;
+}
+
+.ShowContact_text {
+  text-transform: capitalize;
+  font-size: 20px; 
+  font-weight: bold;
+}
+
+.ShowContact_img {
+  width: 40%; 
+  padding: 5px;
+}
+
+
