@@ -8,7 +8,6 @@ import Spinner from "../UI/Spinner/Spinner";
 class ShowContact extends Component {
 
   render() {
-    
     let buttonsBlock = null;
     buttonsBlock = (
       <div className="ShowContact">

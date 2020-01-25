@@ -1,9 +1,11 @@
 import React from "react";
-import './Logo.css';
+import {NavLink} from 'react-router-dom';
 
 const Logo = props => (
   <div className="Logo">
-    <h1>Contacts</h1>
+    <NavLink to="/" style={{color: 'rgb(228, 222, 222)', textDecoration: 'none', fontSize: '35px'}} >
+      Contacts
+    </NavLink>
   </div>
 );
 

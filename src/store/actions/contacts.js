@@ -19,8 +19,8 @@ import {  FETCH_CONTACTS_SUCCESS,
           LOAD_CONTACT_ERROR,
           POST_CONTACT_TO_FRB_SUCCESS,
           DELETE_CONTACT_FROM_FRB_ERROR,
-        DELETE_CONTACT_FROM_FRB_REQUEST
-        } 
+          DELETE_CONTACT_FROM_FRB_REQUEST,
+          CLEAN_FORM } 
 from '../actions/actionsType';
 
 export const fetchContactsRequest = () => ({ type: FETCH_CONTACTS_REQUEST });
@@ -29,7 +29,7 @@ export const fetchContactsError = (error) => ({ type: FETCH_CONTACTS_ERROR, erro
 
 export const postContactToFRBRequest = () => ({ type: POST_CONTACT_TO_FRB_REQUEST });
 export const postContactToFRBError = (error) => ({type: POST_CONTACT_TO_FRB_ERROR, error });
-export const postContactToFRBSuccess = (error) => ({type: POST_CONTACT_TO_FRB_SUCCESS, error });
+export const postContactToFRBSuccess = () => ({type: POST_CONTACT_TO_FRB_SUCCESS });
 
 export const valueChange = (name, value) => ({ type: VALUE_CHANGE, name, value });
 
@@ -51,6 +51,8 @@ export const loadContactError = () => ({ type: LOAD_CONTACT_ERROR });
 
 export const deleteContactFromFRBRequest = () => ({ type: DELETE_CONTACT_FROM_FRB_REQUEST});
 export const deleteContactFromFRBError = () => ({ type: DELETE_CONTACT_FROM_FRB_ERROR });
+
+export const cleanForm = () => ({ type: CLEAN_FORM });
 
 export const fetchContacts = () => {
   return async dispatch => {

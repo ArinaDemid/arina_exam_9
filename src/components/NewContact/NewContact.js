@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Input, Label} from 'reactstrap';
 import {connect} from "react-redux";
-import {addContactToFRB, valueChange, changeContactFromFRB, preViewContact, closeModal} from '../../store/actions/contacts';
+import {addContactToFRB, valueChange, changeContactFromFRB, preViewContact, closeModal, cleanForm} from '../../store/actions/contacts';
 import {NavLink} from 'react-router-dom';
 
 class NewContact extends Component {
@@ -9,6 +9,7 @@ class NewContact extends Component {
     if(this.props.match.params.id) {
       this.props.preViewContact(this.props.match.params.id);
     }
+    this.props.cleanForm();
   }
 
   render() {
@@ -97,7 +98,8 @@ const mapDispatchToProps = dispatch => {
     valueChange: (name, value) => dispatch(valueChange(name, value)),
     changeContact: (contactID, changeContact) => dispatch(changeContactFromFRB(contactID, changeContact)),
     preViewContact: (contactID) => dispatch(preViewContact(contactID)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    cleanForm: () => dispatch(cleanForm())
   };
 };
 

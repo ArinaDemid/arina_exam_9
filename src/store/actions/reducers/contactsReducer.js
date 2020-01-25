@@ -5,6 +5,7 @@ import {  FETCH_CONTACTS_SUCCESS,
           CHANGE_CONTACT_FROM_FRB,
           POST_CONTACT_TO_FRB_REQUEST,
           POST_CONTACT_TO_FRB_ERROR,
+          POST_CONTACT_TO_FRB_SUCCESS,
           VALUE_CHANGE,
           PRE_VIEW_CONTACT_REQUEST,
           PRE_VIEW_CONTACT_SUCCESS,
@@ -13,8 +14,7 @@ import {  FETCH_CONTACTS_SUCCESS,
           SHOW_MODAL,
           SAVE_ID,
           LOAD_CONTACT_SUCCESS,
-          POST_CONTACT_TO_FRB_SUCCESS
-          
+          CLEAN_FORM
 } from "../actionsType";
 
 const initialState = {
@@ -50,8 +50,7 @@ const reducer = (state = initialState, action) => {
         phone: "",
         photo: "",
         email: "",
-        },
-        contactShow: {}
+        }
       };
     case CHANGE_CONTACT_FROM_FRB:
       return {...state, 
@@ -106,6 +105,18 @@ const reducer = (state = initialState, action) => {
     case LOAD_CONTACT_SUCCESS:
       return {...state, 
         contactShow: action.contact};
+  case CLEAN_FORM:
+    return {...state,  
+      contact: {
+        ...state.contact,
+        name: "",
+        phone: "",
+        photo: "",
+        email: ""
+        },
+        contactShow: {},
+        idSearchContact: ""
+    };
     default:
       return state;
   }
