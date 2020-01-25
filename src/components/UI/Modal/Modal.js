@@ -6,7 +6,7 @@ const Modal = props => (
   <Fragment>
     <Backdrop
       show={props.show}
-      click={props.close}
+      onClick={props.close}
     />
     <div className="Modal" style={{
       transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
