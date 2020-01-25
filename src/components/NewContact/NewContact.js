@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Input, Label} from 'reactstrap';
 import {connect} from "react-redux";
-import {addContactToFRB, valueChange} from '../../store/actions/contacts';
+import {addContactToFRB, valueChange, changeContactFromFRB, preViewContact, closeModal} from '../../store/actions/contacts';
 import {NavLink} from 'react-router-dom';
 
 class NewContact extends Component {
@@ -18,7 +18,7 @@ class NewContact extends Component {
     let title = null;
     if (this.props.match.params.id) {
       buttonForm = <Button type="submit" 
-                      
+                      onClick={() => this.props.changeContact(this.props.match.params.id, contact)} 
                       style={{border: 'none', padding: '0 0'}}
                     >
                       <NavLink to="/" style={{backgroundColor: 'rgb(86, 22, 146)', color: 'white', padding: '15px 20px', textDecoration: 'none'}} >
@@ -68,11 +68,11 @@ class NewContact extends Component {
                 value={this.props.match.params.id ? this.props.contact.photo : undefined}
                 onChange={(event) => this.props.valueChange(event.target.name, event.target.value)}/>
             </FormGroup>
-            <FormGroup className="NewContact_group" style={{display: 'flex', justifyContent: 'center'}}>
-              <p>Photo preview</p>
-              <img src={this.props.contact.photo} alt='preViewPhoto'></img>
+              <p style={{paddingRight: '15px'}}>Photo preview</p>
+              <img src={this.props.contact.photo} alt="photo_people" style={{width: '40%', padding: '5px'}}/>
+            <FormGroup className="NewContact_group" style={{display: 'flex', justifyContent: 'center', paddingTop: '10px'}}>
             {buttonForm}
-            <Button type="submit" onClick={this.props.closeModal} className='NewContact_btn'>
+            <Button type="submit" onClick={this.props.closeModal} style={{border: 'none', padding: '0 10px', backgroundColor: 'transparent'}}>
               <NavLink to="/" style={{backgroundColor: 'rgb(86, 22, 146)', color: 'white', padding: '15px 20px', textDecoration: 'none'}} >
                 Back to contacts
               </NavLink>
@@ -96,6 +96,9 @@ const mapDispatchToProps = dispatch => {
   return {
     submitContact: (contact, event) => dispatch(addContactToFRB(contact, event)),
     valueChange: (name, value) => dispatch(valueChange(name, value)),
+    changeContact: (contactID, changeContact) => dispatch(changeContactFromFRB(contactID, changeContact)),
+    preViewContact: (contactID) => dispatch(preViewContact(contactID)),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
